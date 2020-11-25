@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course search</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'CSS/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'CSS/bootstrap.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+    .button {
+      border-radius: 8px;
+      background-color: pink;
+    }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+            <form class="form-inline my-2 my-lg-0">
+
+            </form>
+        </div>
+    </nav>
+
+
+    <main role="main" class="container">
+
+        <div class="big" align="left">
+            <form action="{{url_for('printWords')}}">
+              <br>
+                            <h2>Course search</h2>
+                            <br>
+                <textarea name="comment" rows="1" cols="15"></textarea>
+                <br>
+                <input type="submit" name="" value="Search" class="btn btn-info">
+
+<br>
+<br>
+                <div align="left">
+                <!-- <p>Did you mean {{positio}}</p>-->
+                {%for s in start_list%}
+                <p><strong>{{s['courseName']}}</strong></p>
+                <p><small>{{s['courseInfo'][1]}} </small>
+                  <span id="more"></span></p>
+               {%endfor%}
+                </div>
+            </form>
+  </div>
+
+    </body>
+           </html>
